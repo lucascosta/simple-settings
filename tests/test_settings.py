@@ -142,3 +142,9 @@ class TestSettings(object):
             with pytest.raises(RuntimeError):
                 from simple_settings.core import _Settings
                 _Settings()
+
+    def test_should_get_setting_as_item(self):
+        settings = get_settings_by_cmd_line('tests.samples.simple')
+
+        assert settings['SIMPLE_STRING'] == u'simple'
+        assert settings['SIMPLE_INTEGER'] == 1

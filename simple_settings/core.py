@@ -49,6 +49,9 @@ class _Settings(object):
     def __getattr__(self, attr):
         return self._dict[attr]
 
+    def __getitem__(self, *args):
+        return self.__getattr__(*args)
+
     def as_dict(self):
         return copy.deepcopy(self._dict)
 
